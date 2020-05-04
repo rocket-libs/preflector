@@ -1,6 +1,6 @@
 package text_files
 
-func getFileContents(file string) string {
+func GetFileContents(file string) string {
 	/*jsonFile, err := os.Open(file)
 	if err != nil {
 		log.Fatal(err)
