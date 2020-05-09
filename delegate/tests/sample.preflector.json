@@ -1,0 +1,65 @@
+{
+    "location" : "..",
+    "properties" : [{
+        "name" : "documentNumberId",
+        "type" : "Guid"
+    },{
+        "name" : "orderNumber",
+        "type" : "String"
+    },{
+        "name" : "dated",
+        "type": "DateTime"
+    },{
+        "name": "customerId",
+        "type": "Guid"
+    },{
+        "name": "orderPlace",
+        "type":"String"
+    },{
+        "name":"message",
+        "type":"String"
+    },{
+        "name":"messages",
+        "type": "List<String>"
+    },{
+        "name":"place",
+        "type": "Place",
+        "isObject": true
+    },{
+        "name":"lineItems",
+        "type":"List<OrderLineItem>"
+    },{
+        "name": "location",
+        "type": "LocationInfo",
+        "isObject": true
+    },{
+        "name": "phoneNumber",
+        "type":"String"
+    },{
+        "name":"total",
+        "type":"double"
+    },{
+        "name":"vendorId",
+        "type":"Guid"
+    },{
+        "name": "customerGroup",
+        "type":"CustomerGroup",
+        "isObject":true
+    },{
+        "name":"status",
+        "type":"String"
+    },{
+        "name":"feedbackStatus",
+        "type": "String"
+    },{
+        "name":"userSessionId",
+        "type": "Guid"
+    },{
+        "name": "deliveryFee",
+        "type": "double"
+    },{
+        "name": "download",
+        "type": "OrderHeaderDownload",
+        "isObject": true
+    }]
+}

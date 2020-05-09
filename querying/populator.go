@@ -1,4 +1,4 @@
-package workers
+package querying
 
 import (
 	"io/ioutil"
@@ -34,6 +34,6 @@ func handleFile(currentDirectory, fileName string, preflectorFiles *[]string) {
 }
 
 func isPreflectorFile(fileName string) bool {
-	isTargetFile, _ := filepath.Match("*.preflect.json", fileName)
+	isTargetFile, _ := filepath.Match("*.preflector.json", fileName)
 	return isTargetFile
 }

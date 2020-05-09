@@ -1,6 +1,8 @@
 package definitions
 
 type ClassDefinition struct {
-	Location string
-	Property []Property
+	ClassName        string
+	WorkingDirectory string
+	Location         string
+	Property         []Property
 }
