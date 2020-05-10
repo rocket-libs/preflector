@@ -1,8 +1,6 @@
 package post_processing
 
 import (
-	"errors"
-	"fmt"
 	"strings"
 )
 
@@ -23,16 +21,7 @@ func GetPostProcessors(line string) []PostProcessorDirective {
 			appliedPostProcessors = append(appliedPostProcessors)
 		}
 	}
-}
-
-func getDirective(line string, candidatePostProcessor string) (postProcessorDirective PostProcessorDirective, err error) {
-	postProcessorTag := getPostProcessorTag(candidatePostProcessor)
-	indexOfTagStart := strings.Index(line, postProcessorTag)
-	if indexOfTagStart < 0 {
-		return postProcessorDirective, errors.New(fmt.Sprintf("Could not find tag beginning with %s in line %s", postProcessorTag, line))
-	}
-	indexOfTagEnd := line[indexOfTagStart]
-
+	return nil
 }
 
 func containsPostProcessor(line string, candidatePostProcessor string) bool {
