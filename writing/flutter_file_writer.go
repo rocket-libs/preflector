@@ -5,13 +5,9 @@ import (
 	"rocketlibs/preflector/definitions"
 )
 
-func Write(manyClassDefinitions []definitions.ClassDefinition) {
+func WriteFlutterClass(manyClassDefinitions []definitions.ClassDefinition) {
 	for index, singleClassDefinition := range manyClassDefinitions {
 		println(fmt.Sprintf("Definition %d of %d", index, len(manyClassDefinitions)))
-		writeSingleClass(singleClassDefinition)
+		GenerateClass(singleClassDefinition)
 	}
-}
-
-func writeSingleClass(singleClassDefinition definitions.ClassDefinition) {
-	println(singleClassDefinition.ClassName)
 }

@@ -2,12 +2,12 @@ package querying_workers
 
 import (
 	"encoding/json"
-	"io/ioutil"
-	"os"
 	"rocketlibs/preflector/definitions"
+	"rocketlibs/preflector/utils/text_files"
 )
 
 type FileReceiver struct {
+	JsonProcessor IJsonProcessor
 }
 
 type IJsonProcessor interface {
@@ -15,12 +15,7 @@ type IJsonProcessor interface {
 }
 
 func (fileReceiver FileReceiver) GetClassDefinitionFromFile(filename string) (classDefinition definitions.ClassDefinition, err error) {
-	jsonFile, err := os.Open(filename)
-	if err != nil {
-		return classDefinition, err
-	}
-	defer jsonFile.Close()
-	byteValue, err := ioutil.ReadAll(jsonFile)
+	byteValue, err := text_files.ReadBytes(filename)
 	if err != nil {
 		return classDefinition, err
 	}

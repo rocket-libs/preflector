@@ -10,18 +10,19 @@ import (
 	"strings"
 )
 
-func GetClassDefinition(file string) (classDefinition definitions.ClassDefinition, err error) {
-	var jsonProcessor querying_workers.IJsonProcessor
-	jsonProcessor = querying_workers.FileReceiver{}
+func GetClassDefinition(file string, jsonProcessor querying_workers.IJsonProcessor) (classDefinition definitions.ClassDefinition, err error) {
 
 	log.Println("Parsing: " + file)
 
 	classDefinition, err = jsonProcessor.GetClassDefinitionFromFile(file)
-	classDefinition.ClassName, err = GetClassName(file)
+	if err != nil {
+		return classDefinition, err
+	}
+	classDefinition.ClassName, err = getClassName(file)
 	return classDefinition, err
 }
 
-func GetClassName(filename string) (className string, err error) {
+func getClassName(filename string) (className string, err error) {
 	qualifiedFilename := filepath.Base(filename)
 	bits := strings.Split(qualifiedFilename, ".")
 	filenameBitsCount := len(bits)

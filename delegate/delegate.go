@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"rocketlibs/preflector/definitions"
 	"rocketlibs/preflector/querying"
+	"rocketlibs/preflector/querying/querying_workers"
 )
 
 func Work(directory string) error {
@@ -15,7 +16,7 @@ func Work(directory string) error {
 	fmt.Println(fmt.Sprintf("Found %d preflector files", len(preflectorFiles)))
 	manyClassDefinitions := make([]definitions.ClassDefinition, 0)
 	for _, file := range preflectorFiles {
-		singleClassDefinition, err := querying.GetClassDefinition(file)
+		singleClassDefinition, err := querying.GetClassDefinition(file, &querying_workers.FileReceiver{})
 		if err != nil {
 			return err
 		}
