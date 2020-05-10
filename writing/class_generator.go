@@ -29,7 +29,3 @@ func replaceSimplePlaceholders(line string, classDefinition definitions.ClassDef
 	line = strings.ReplaceAll(line, "{{ClassName}}", classDefinition.ClassName)
 	return line
 }
-
-func getPreprocessors(line string) []string {
-
-}
