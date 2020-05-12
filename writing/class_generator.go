@@ -16,7 +16,7 @@ func GenerateClass(classDefinition definitions.ClassDefinition) (generatedFileCo
 	templateString := string(byteValue)
 	templateLines := strings.Split(templateString, "\n")
 	generatedFileContent = ""
-	currentPreprocessors := make([]string, 0)
+	//currentPreprocessors := make([]string, 0)
 	for index, currentLine := range templateLines {
 		println(fmt.Sprintf("\tProcessing line %d of %d", index, len(templateLines)))
 		generatedFileContent += replaceSimplePlaceholders(currentLine, classDefinition)
