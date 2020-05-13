@@ -22,7 +22,7 @@ func Write(jsonContent string, lineProvider line_managers.ILineProvider, lineRec
 	return nil
 }
 
-func work(lineProvider line_receivers.ILineProvider, lineReceiver line_receivers.ILineReceiver) (err error) {
+func work(lineProvider line_managers.ILineProvider, lineReceiver line_managers.ILineReceiver) (err error) {
 	line, err := lineProvider.Get()
 	if err != nil {
 		return err
